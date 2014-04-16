@@ -1,0 +1,58 @@
+<div class="jumbotron">
+  <h1>
+    I am the greatest gem of all time! Witness!
+  </h1>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="show">
+    <h3 class="center_me"><%= @gem.name %></h1>
+    <div class="center_me"><a href="<%=@gem.url%>">Visit me here!</a></div>
+    <p><%= @gem.description %></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="container form_container">
+  <div class="row">
+    <div class="edit_form">
+
+      <p>Notice a blemish in my public-facing, errrr, face. Edit me below. Do not, under any circumstances, push the delete button you smug %&*%@!</p>
+
+
+      <form role="form" action="/gems/<%= @gem.id %>" method="post">
+
+        <div class="form-group">
+          <label for="name">Gem Name</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Enter gem name">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" name="description"placeholder="Enter gem description">
+        </div>
+
+        <div class="form-group">
+          <label for="url">URL</label>
+          <input type="text" class="form-control" id="url" name="url"placeholder="Enter url">
+        </div>
+
+        <input type="hidden" name="_method" value="put" />
+        
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+
+
+      <form class="edit_form" action="/gems/<%= @gem.id %>" method="post">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" value="Delete" />
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+
