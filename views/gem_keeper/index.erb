@@ -2,67 +2,69 @@
   <h1>
     Hello, I'm the Little Gem List App.
   </h1>
-  <p>Here are a few of my favorite gems:</p>
+  
 </div>
 
 <div class="container">
   <div class="row">
-    
-    <div class="listed col-md-9 col-md-offset-2">
-        <ul class="no_decoration list-group">
-          <% @gems.each do |gem| %>
-            
-            
+    <div class="listed col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Here are a few of my favorite gems:</div>
+          <div class="panel-body">
+            <ul class="no_decoration list-group">
+              <% @gems.each do |gem| %>
+                
+                
+                  <li class="list-group-item">
+                    <a href="/gems/<%= gem.id %>"><%= gem.name %> – <%= gem.description %> – <%= gem.url %>
+                    </a>
+                  </li>
 
-              <li class="list-group-item">
-                <a href="/gems/<%= gem.id %>"><%= gem.name %> – <%= gem.description %> – <%= gem.url %>
-                </a>
-              </li>
+                
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    </div> 
+ 
 
-            
-          <% end %>
-        </ul>
+
+    <div class="listed col-md-6">
+      <div class="panel panel-primary">
+
+          <div class="panel-heading">I am a hungry little app! Feed me gems, please!</div>
+
+          <div class="panel-body">
+            <form role="form" action="/gems" method="post">
+
+              <div class="form-group">
+                <label for="name">Gem Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter gem name">
+              </div>
+
+              <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" name="description" placeholder="Enter gem description">
+              </div>
+
+              <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" class="form-control" id="url" name="url"placeholder="Enter url">
+              </div>
+              
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+          </div>
+
+      </div>
     </div>
-    
-  </div>
-</div>
-  
-<div class="gray">
-  <div class="marge">
-    <h3>I am a hungry little app! Feed me gems, please!</h1>
-  </div>
-</div>
-
-<div class="bottom">
-  <div class="marge2">
-
-    <form role="form" action="/gems" method="post">
-
-      <div class="form-group">
-        <label for="name">Gem Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter gem name">
-      </div>
-
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description"placeholder="Enter gem description">
-      </div>
-
-      <div class="form-group">
-        <label for="url">URL</label>
-        <input type="text" class="form-control" id="url" name="url"placeholder="Enter url">
-      </div>
-      
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
-
-
-    
-
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
     <p>Click <a href="/zen">here</a> for the zen gem listing experience.</p>
   </div>
-
 </div>
+
 
 
     

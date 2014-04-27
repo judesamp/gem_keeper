@@ -4,12 +4,30 @@ require 'open-uri'
 
 set :database, "sqlite3:///favorite_gems.db"
 
-
+# index
 get "/" do
   @gems = GemKeeper.all
   erb :"gem_keeper/index"
 end
 
+# show
+get "/gems/:id" do
+  @gem = GemKeeper.find(params[:id])
+  erb :"gem_keeper/show"
+end
+
+# edit
+get "/gems/:id/edit" do
+  @gem = GemKeeper.find(params[:id])
+  erb :"gem_keeper/edit"
+end
+
+# new
+get "/gems/new" do
+   erb :"gem_keeper/new"
+end
+
+# create
 post "/gems" do
   clean_params = GemKeeper.launder_params(params)
   #GemKeeper.check_url(params[:url])
@@ -25,11 +43,7 @@ post "/gems" do
   end
 end
 
-get "/gems/:id" do
-  @gem = GemKeeper.find(params[:id])
-  erb :"gem_keeper/show"
-end
-
+# update
 put "/gems/:id" do
   #GemKeeper.check_url(params[:url])
   gem = GemKeeper.find(params[:id])
@@ -45,6 +59,7 @@ put "/gems/:id" do
   end
 end
 
+# delete
 delete "/gems/:id" do
   gem = GemKeeper.find(params[:id])
   if gem.delete
@@ -61,9 +76,6 @@ end
 get "/zen" do
   erb :"gem_keeper/zen"
 end
-
-
-
 
 
 
