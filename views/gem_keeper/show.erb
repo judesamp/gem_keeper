@@ -4,17 +4,31 @@
   </h1>
 </div>
 
+
 <div class="container">
   <div class="row">
-    <div class="show">
-    <h3 class="center_me"><%= @gem.name %></h1>
-    <div class="center_me"><a href="<%=@gem.url%>">Visit me here!</a></div>
-    <p><%= @gem.description %></p>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="center_me"><%= @gem.name %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="center_me"><a href="<%=@gem.url%>">Visit me here!</a></div>
+        <br />
+        <p class="center_me"><%= @gem.description %></p>
+        </div>
+        <div class="panel-footer">
+        <p class="center_me">Click <a href="/gems/<%= @gem.id %>/edit">here</a> to edit this gem.</p>
+      </div>
+      </div>
+      
     </div>
   </div>
 </div>
+   
+<div class="col-md-4 col-md-offset-5">
+  
+</div>
 
-<p>Click <a href="/gems/<%= @gem.id %>/edit">here</a> to edit this gem.</p>
 
 
 
