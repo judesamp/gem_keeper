@@ -30,20 +30,21 @@
 
               <div class="form-group">
                 <label for="name">Gem Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter gem name">
+                <input type="text" class="form-control" id="name" value="<%= @gem.name %>" name="name">
               </div>
 
               <div class="form-group">
                 <label for="description">Description</label>
-                <input type="text" class="form-control" id="description" name="description"placeholder="Enter gem description">
+                <input type="text" class="form-control" id="description" value="<%= @gem.description %>" name="description">
               </div>
 
               <div class="form-group">
                 <label for="url">URL</label>
-                <input type="text" class="form-control" id="url" name="url"placeholder="Enter url">
+                <input type="text" class="form-control" id="url" value="<%= @gem.url %>" name="url">
               </div>
 
-              <input type="hidden" name="_method" value="delete" />
+
+              <input type="hidden" name="_method" value="put" />
               
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
